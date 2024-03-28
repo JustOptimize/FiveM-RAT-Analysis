@@ -17,7 +17,7 @@ Second stage of the RAT that is used to download the third stage of the RAT from
 
 Third stage of the RAT that is used to download the fourth stage of the RAT from a remote server.
 
-# Stage 4
+## Stage 4
 
 Finally with stage 4 RAT keeps the connection with the remote server and waits for commands.
 
