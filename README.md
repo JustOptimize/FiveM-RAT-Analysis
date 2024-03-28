@@ -21,11 +21,11 @@ Third stage of the RAT that is used to download the fourth stage of the RAT from
 
 Finally with stage 4 RAT keeps the connection with the remote server and waits for commands.
 
-## What is missing?
+# What is missing?
 
 Digging deeper into the VPS that was infected, I found that the hosts file was modified to block many common antivirus websites. This was done to prevent the server from being scanned by antivirus software.
 
-## How to prevent this?
+# How to prevent this?
 
 -   Do NOT download leaked resources
 -   Keep your server up to date
@@ -35,7 +35,7 @@ Digging deeper into the VPS that was infected, I found that the hosts file was m
 -   Monitor your server for any suspicious activity
 -   Keep an eye on your resources for any suspicious code
 
-## Mitigations
+# Mitigations
 
 -   The first mitigation I put in place was to block the IP address of the server that was hosting the malicious code. This was done by adding the IP address to the firewall blacklist on the VPS. This would prevent any further communication with the server and stop the RAT from being able to download additional stages.
 -   The second mitigation was to block the RAT domain in the hosts file. This would prevent the RAT from being able to communicate with the remote server and download additional stages (if the IP address was changed).
