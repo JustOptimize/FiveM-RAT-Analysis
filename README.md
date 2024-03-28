@@ -1,7 +1,7 @@
 # FiveM RAT Analysis
 
 This repository contains the analysis of a RAT (Remote Access Trojan) that was found in multiple resources.
-This peace of code (stage 2) is a part of a bigger RAT that is used to infect FiveM servers and gets injected into various resources.
+This piece of code (stage 2) is a part of a bigger RAT that is used to infect FiveM servers and gets injected into various resources.
 
 WARNING: This code is malicious and should not be used in any way. This repository is for educational purposes only.
 
