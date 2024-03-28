@@ -17,6 +17,10 @@ Second stage of the RAT that is used to download the third stage of the RAT from
 
 Third stage of the RAT that is used to download the fourth stage of the RAT from a remote server.
 
+# Stage 4
+
+Finally with stage 4 RAT keeps the connection with the remote server and waits for commands.
+
 ## What is missing?
 
 Digging deeper into the VPS that was infected, I found that the hosts file was modified to block many common antivirus websites. This was done to prevent the server from being scanned by antivirus software.
