@@ -5,21 +5,22 @@ This piece of code (stage 2) is a part of a bigger RAT that is used to infect Fi
 
 WARNING: This code is malicious and should not be used in any way. This repository is for educational purposes only.
 
-## Stage 2
+## Features
 
-First stage of the RAT that is used to download the second stage of the RAT from a remote server.
+#### Remote Code Execution (RCE)
 
-## Stage 3
+<a href="./RCE/"></a>RCE Analysis</a>
 
-Second stage of the RAT that is used to download the third stage of the RAT from a remote server.
+-   First stage of the RAT that is used to download the second stage of the RAT from a remote server.
+-   Second stage of the RAT that is used to download the third stage of the RAT from a remote server.
+-   Third stage of the RAT that is used to download the fourth stage of the RAT from a remote server.
+-   Finally with stage 4 RAT keeps the connection with the remote server and waits for commands.
 
-## Stage 3b
+#### Between Script Communication (BSC)
 
-Third stage of the RAT that is used to download the fourth stage of the RAT from a remote server.
+<a href="./BSC/"></a>BSC Analysis</a>
 
-## Stage 4
-
-Finally with stage 4 RAT keeps the connection with the remote server and waits for commands.
+-   RAT registers handlers for events that are triggered by other instances of the RAT to bypass detection.
 
 # What is missing?
 
@@ -40,3 +41,8 @@ Digging deeper into the VPS that was infected, I found that the hosts file was m
 -   The first mitigation I put in place was to block the IP address of the server that was hosting the malicious code. This was done by adding the IP address to the firewall blacklist on the VPS. This would prevent any further communication with the server and stop the RAT from being able to download additional stages.
 -   The second mitigation was to block the RAT domain in the hosts file. This would prevent the RAT from being able to communicate with the remote server and download additional stages (if the IP address was changed).
 -   The third mitigation was to remove the RAT code from the resources. This was done by removing the code from the resources and restarting the server. This would prevent the RAT from being able to execute any further code on the server.
+
+# News
+
+March 28 2024 - Found the first instance of this RAT
+March 29 2024 - Found the second instance of this RAT using another domain for the backdoor (https://thedreamoffivem[.]com/)
