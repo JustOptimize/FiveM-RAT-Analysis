@@ -7,18 +7,14 @@ WARNING: This code is malicious and should not be used in any way. This reposito
 
 ## Features
 
-#### Remote Code Execution (RCE)
-
-<a href="./RCE/"></a>RCE Analysis</a>
+### [Remote Code Execution (RCE)](./RCE/)
 
 -   First stage of the RAT that is used to download the second stage of the RAT from a remote server.
 -   Second stage of the RAT that is used to download the third stage of the RAT from a remote server.
 -   Third stage of the RAT that is used to download the fourth stage of the RAT from a remote server.
 -   Finally with stage 4 RAT keeps the connection with the remote server and waits for commands.
 
-#### Between Script Communication (BSC)
-
-<a href="./BSC/"></a>BSC Analysis</a>
+### [Between Script Communication (BSC)](./BSC/)
 
 -   RAT registers handlers for events that are triggered by other instances of the RAT to bypass detection.
 
