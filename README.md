@@ -1,44 +1,57 @@
 # FiveM RAT Analysis
 
-This repository contains the analysis of a RAT (Remote Access Trojan) that was found in multiple resources.
-This piece of code (stage 2) is a part of a bigger RAT that is used to infect FiveM servers and gets injected into various resources.
+## Overview
 
-WARNING: This code is malicious and should not be used in any way. This repository is for educational purposes only.
+This repository contains an in-depth analysis of a Remote Access Trojan (RAT) found in various FiveM server resources. The analysis focuses on the second stage of the RAT, which is part of a larger, multi-stage infection process aimed at compromising FiveM servers.
+
+> **Warning:** The code in this repository is malicious and should not be used under any circumstances. This analysis is provided solely for educational purposes.
 
 ## Features
 
 ### [Remote Code Execution (RCE)](./RCE/)
 
--   First stage of the RAT that is used to download the second stage of the RAT from a remote server.
--   Second stage of the RAT that is used to download the third stage of the RAT from a remote server.
--   Third stage of the RAT that is used to download the fourth stage of the RAT from a remote server.
--   Finally with stage 4 RAT keeps the connection with the remote server and waits for commands.
+The RAT operates through a series of stages, each designed to further the infection:
+
+- **Stage 1:** Downloads the second stage of the RAT from a remote server.
+- **Stage 2:** Retrieves the third stage from the server.
+- **Stage 3:** Continues by downloading the fourth stage.
+- **Stage 4:** Establishes a persistent connection with the remote server, allowing for command execution.
 
 ### [Between Script Communication (BSC)](./BSC/)
 
--   RAT registers handlers for events that are triggered by other instances of the RAT to bypass detection.
+This RAT also employs Between Script Communication (BSC), registering handlers for events triggered by other RAT instances. This method helps the RAT avoid detection by communicating between scripts.
 
-# What is missing?
+## Additional Findings
 
-Digging deeper into the VPS that was infected, I found that the hosts file was modified to block many common antivirus websites. This was done to prevent the server from being scanned by antivirus software.
+During further investigation on an infected VPS, it was discovered that the hosts file had been altered to block access to common antivirus websites. This modification was likely made to prevent the server from being scanned by antivirus software.
 
-# How to prevent this?
+## Prevention and Mitigation
 
--   Do NOT download leaked resources
--   Keep your server up to date
--   Use a firewall
--   Use a WAF (Web Application Firewall)
--   Use a good antivirus software
--   Monitor your server for any suspicious activity
--   Keep an eye on your resources for any suspicious code
+### Prevention
 
-# Mitigations
+To avoid similar infections on your FiveM server, consider the following precautions:
 
--   The first mitigation I put in place was to block the IP address of the server that was hosting the malicious code. This was done by adding the IP address to the firewall blacklist on the VPS. This would prevent any further communication with the server and stop the RAT from being able to download additional stages.
--   The second mitigation was to block the RAT domain in the hosts file. This would prevent the RAT from being able to communicate with the remote server and download additional stages (if the IP address was changed).
--   The third mitigation was to remove the RAT code from the resources. This was done by removing the code from the resources and restarting the server. This would prevent the RAT from being able to execute any further code on the server.
+- **Avoid Downloading Leaked Resources:** Use only trusted sources for server resources.
+- **Keep Your Server Updated:** Regular updates can prevent exploitation of vulnerabilities.
+- **Use a Firewall:** Protect your server by blocking unauthorized access.
+- **Implement a Web Application Firewall (WAF):** Add an extra layer of security for web applications.
+- **Install Reliable Antivirus Software:** Ensure your server is protected by strong antivirus software.
+- **Monitor Server Activity:** Regularly check for suspicious activity on your server.
+- **Inspect Resource Code:** Periodically review your resources for any suspicious code.
 
-# News
+### Mitigation
 
-March 28 2024 - Found the first instance of this RAT
-March 29 2024 - Found the second instance of this RAT using another domain for the backdoor (https://thedreamoffivem[.]com/)
+If you suspect your server has been compromised by this RAT, consider the following mitigation steps:
+
+1. **Block the IP Address:** Add the IP address of the malicious server to your firewall's blacklist.
+2. **Block the RAT Domain:** Modify the hosts file to block communication with the RAT's domain.
+3. **Remove Malicious Code:** Delete the RAT code from your resources and restart the server to halt further execution.
+
+## Timeline of Discoveries
+
+- **March 28, 2024:** The first instance of this RAT was discovered.
+- **March 29, 2024:** A second instance was found using a different domain for its backdoor (thedreamoffivem[.]com)
+
+## Disclaimer
+
+This repository is for educational purposes only. The information provided here should be used to improve security practices and protect servers from similar threats. Do not attempt to use the code for malicious purposes.
